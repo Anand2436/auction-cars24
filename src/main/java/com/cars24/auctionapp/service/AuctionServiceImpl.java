@@ -47,6 +47,11 @@ public class AuctionServiceImpl implements IAuctionService {
 			}
 		}
 		
+		// meaning no pages exist after this
+		if(counter>=size) {
+			return new PaginatedAuctionObject(itemsOnRequestedPage,5,0);
+		}
+		
 		if(start>=0 && limit>=0)
 		return new PaginatedAuctionObject(itemsOnRequestedPage,limit,start+limit);
 		else {
